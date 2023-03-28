@@ -7,39 +7,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BOILERPLATE !!</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script type="text/javascript" src="https://code.jquery.com/jquery.min.js"></script>
+
+    <!-- Script for display Map -->
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.13.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.13.0/mapbox-gl.css' rel='stylesheet' />
+
+    <!-- Map Stylesheets -->
+    <link rel="stylesheet" href="/styleSheets/app.css">
+
 </head>
 
 <body class="d-flex flex-column vh-100">
     <%- include('../partials/navbar') %>
-        <main class="container mt-5">
-            <%- body %>
-        </main>
-        <%- include('../partials/footer') %>
-            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <%- include('../partials/flash') %>
+            <main class="container mt-5">
+                <%- body %>
+            </main>
+            <%- include('../partials/footer') %>
+                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+                <!-- cdn for file input -->
+                <script
+                    src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.min.js"></script>
 
-            <script>
-                // For Client Side Validation
-                // Example starter JavaScript for disabling form submissions if there are invalid fields
-                (function () {
-                    'use strict'
+                <script src="/javascripts/formValidators.js">
+                </script>
 
-                    // Fetch all the forms we want to apply custom Bootstrap validation styles to
-                    const forms = document.querySelectorAll('.validated-form')
-
-                    // Loop over them and prevent submission
-                    Array.prototype.slice.call(forms)
-                        .forEach(function (form) {
-                            form.addEventListener('submit', function (event) {
-                                if (!form.checkValidity()) {
-                                    event.preventDefault()
-                                    event.stopPropagation()
-                                }
-
-                                form.classList.add('was-validated')
-                            }, false)
-                        })
-                })()
-            </script>
 </body>
 
 </html>

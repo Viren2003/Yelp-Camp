@@ -1,8 +1,9 @@
-<%layout('layout /boilerplate')%>
+<%layout('layout/boilerplate')%>
+
     <div class="row">
         <h1 class="text-center col-12">New Campground</h1>
         <div class="col-6 offset-3">
-            <form action="/campground" method="POST" novalidate class="validated-form">
+            <form action="/campground" method="POST" novalidate class="validated-form" enctype="multipart/form-data">
                 <div class="mb-3">
                     <label class="form-label" for="title">Title</label>
                     <input class="form-control " type="text" id="title" name="campground[title]" required>
@@ -10,7 +11,6 @@
                         Verified !
                     </div>
                 </div>
-
                 <div class="mb-3">
                     <label class="form-label" for="location">Location</label>
                     <input class="form-control " type="text" id="location" name="campground[location]" required>
@@ -18,13 +18,8 @@
                         Verified !
                     </div>
                 </div>
-                <div class="mb-3">
-                    <label class="form-label" for="image">Image Url</label>
-                    <input class="form-control " type="text" id="image" name="campground[image]" required>
-                    <div class="valid-feedback">
-                        Verified !
-                    </div>
-                </div>
+          
+        
                 <div class="mb-3">
 
                     <label class="form-label" for="price"> Campground Price</label>
@@ -46,6 +41,20 @@
                         Verified !
                     </div>
                 </div>
+                <div class="input-group">
+                    <div class="form-file custom-file">
+                        <input type="file" class="form-file-text custom-file-input" id="image" name="image"
+                            aria-describedby="inputGroupFileAddon01" multiple>
+                        <label class="custom-file-label" for="image">Upload Photos</label>
+                    </div>
+                </div>
+                <!-- <div class="mb-3">
+                                    <label class="form-label" for="image">Image Url</label>
+                                    <input class="form-control " type="text" id="image" name="campground[image]" required>
+                                    <div class="valid-feedback">
+                                        Verified !
+                                    </div>
+                                </div> -->
 
                 <div class="mb-3">
                     <button class="btn btn-success">Add Campground</button>

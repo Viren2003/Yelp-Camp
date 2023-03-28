@@ -1,4 +1,7 @@
 <%layout('layout/boilerplate')%>
+  <div id="cluster-map">
+    
+  </div>
 
     <h1> All Campgrounds </h1>
     <div>
@@ -7,10 +10,14 @@
 
     <% for(let campground of campgrounds){%>
         <!-- here first ul & li  -->
-        <div class="card" mb-3>
+        <div class="card mb-3" >
             <div class="row">
                 <div class="col-md-4">
-                    <img src="<%=campground.image%>" alt="" class="img-fluid">
+                    <% if(campground.images.length){%>
+                    <img src="<%=campground.images[0].url%>" alt="" class="img-fluid">
+                    <% }else{%>
+                        <img class="img-fluid" src="https://res.cloudinary.com/dttq6tsnz/image/upload/v1679387340/Yelp-Camp/a0hyuq79dezv8hnbt2ih.jpg" alt="Default Image" >
+                        <% } %>
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">
@@ -32,3 +39,7 @@
             </div>
         </div>
         <% } %>
+
+<script>const campgrounds = {features:<%- JSON.stringify(campgrounds)%>}  // set the data where clusyer map is required !
+</script>
+<script src="/javascripts/clusterMap.js"></script>
